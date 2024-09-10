@@ -1,0 +1,71 @@
+.card {
+  height: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.card_image {
+  max-height: 200px;
+  border-radius: 5px;
+}
+
+.card_wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin: 5px 20px;
+}
+
+.card_bg {
+  background-color: #f0f0f0;
+  display: block;
+  height: 20px;
+  border-radius: 7px;
+}
+
+.card_views {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 5px;
+  padding: 10px;
+}
+
+.card_likes {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 5px;
+  padding: 10px;
+}
+
+.card_description {
+  display: flex;
+  flex-direction: column;
+}
+
+.card_time {
+  margin: 10px 20px;
+}
+
+:where(.css-dev-only-do-not-override-qnu6hi).ant-card .ant-card-body {
+  display: flex;
+  flex-direction: column;
+  object-fit: cover;
+  padding: 0;
+}
+
+:where(.css-dev-only-do-not-override-qnu6hi).ant-image .ant-image-img {
+  position: relative;
+  object-fit: cover;
+}
+
+:where(.css-dev-only-do-not-override-qnu6hi).ant-image {
+  align-self: center;
+}

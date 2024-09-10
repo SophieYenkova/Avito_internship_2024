@@ -1,0 +1,18 @@
+ul {
+  list-style: none;
+}
+
+.AdsPage {
+  padding: 10px;
+}
+
+.AdsPage_title {
+  margin-left: 40px;
+}
+
+
+.errorImg_image {
+    position: relative;
+    max-height: 200px;
+    width: auto;
+}
