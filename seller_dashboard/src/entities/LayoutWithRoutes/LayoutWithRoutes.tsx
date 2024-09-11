@@ -1,11 +1,8 @@
 import React from "react";
 import { Layout, Menu, theme, Breadcrumb } from "antd";
 import { Link, Outlet } from "react-router-dom";
-import {
-  LaptopOutlined,
-  NotificationOutlined,
-  UserOutlined,
-} from "@ant-design/icons";
+import Sort from "../../features/Sort/Sort";
+
 const { Header, Content, Footer, Sider } = Layout;
 const LayoutWithRoutes: React.FC = () => {
   const {
@@ -17,20 +14,8 @@ const LayoutWithRoutes: React.FC = () => {
     { key: "2", label: <Link to="/orders">Заказы</Link> },
   ];
 
-  const items2 = [UserOutlined, LaptopOutlined, NotificationOutlined].map(
-    (icon, index) => {
-      const key = String(index + 1);
-      return {
-        key: `sub${key}`,
-        icon: React.createElement(icon),
-        label: `subnav ${key}`,
-        children: new Array(4).fill(null).map((_, j) => {
-          const subKey = index * 4 + j + 1;
-          return { key: subKey, label: `option${subKey}` };
-        }),
-      };
-    }
-  );
+  const items2=[]
+
 
   return (
     <Layout>
@@ -54,14 +39,6 @@ const LayoutWithRoutes: React.FC = () => {
             borderRadius: borderRadiusLG,
           }}
         >
-          <Sider style={{ background: colorBgContainer }} width={200}>
-            <Menu
-              mode="inline"
-              defaultSelectedKeys={["1"]}
-              defaultOpenKeys={["sub1"]}
-              items={items2}
-            />
-          </Sider>
           <Content style={{ padding: "0 24px", minHeight: 280 }}>
             <Outlet />
           </Content>
