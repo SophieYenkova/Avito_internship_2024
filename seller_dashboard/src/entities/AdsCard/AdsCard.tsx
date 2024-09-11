@@ -7,25 +7,45 @@ import { IAdsProps } from "../../app/types/types";
 const { Meta } = Card;
 
 import "./AdsCard.css";
+interface AdsCardProps extends IAdsProps {
+  onClick: () => void;
+}
 
-const AdsCard = (props: IAdsProps) => {
-  const { imageUrl, description, name, price, views, likes, createdAt } = props;
-  let cuttedText = "";
+const AdsCard = (props: AdsCardProps) => {
+  const {
+    imageUrl,
+    description,
+    name,
+    price,
+    views,
+    likes,
+    createdAt,
+    onClick,
+  } = props;
+  let croppedText = "";
   if (description) {
-    cuttedText = description.split(" ").slice(0, 12).join(" ");
-    if (cuttedText.length < description.length) {
-      cuttedText += "...";
+    croppedText = description.split(" ").slice(0, 12).join(" ");
+    if (croppedText.length < description.length) {
+      croppedText += "...";
     }
   }
 
-  return (
-    <Card style={{ width: 300 }} className="card">
-      {imageUrl ? (
-        <Image className="card_image" src={imageUrl} />
-      ) : (
-        <ErrorImg />
-      )}
+  const handleImageClick = (event: React.MouseEvent<HTMLImageElement>) => {
+    event.stopPropagation();
+  };
 
+  return (
+    <Card style={{ width: 300 }} className="card" onClick={onClick}>
+      <div className="image-wrapper" onClick={handleImageClick}>
+        {imageUrl ? (
+          <Image
+            className="card_image"
+            src={imageUrl}
+          />
+        ) : (
+          <ErrorImg />
+        )}
+      </div>
       <div className="card_wrapper">
         {" "}
         <span className="card_bg card_views">
@@ -39,7 +59,7 @@ const AdsCard = (props: IAdsProps) => {
       </div>
       <div className="card_description">
         <div className="card_wrapper">
-          <Meta title={name} description={cuttedText} />
+          <Meta title={name} description={croppedText} />
           <span>{price}₽</span>
         </div>
 

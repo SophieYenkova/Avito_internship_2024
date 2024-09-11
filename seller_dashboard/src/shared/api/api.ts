@@ -2,21 +2,34 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { APP_CONSTS } from "../consts/appConsts";
 
 export const api = createApi({
-  reducerPath: "api", // путь в state Redux, где будут храниться данные
+  reducerPath: "api", 
   baseQuery: fetchBaseQuery({ baseUrl: APP_CONSTS.BACKEND_URL }),
   endpoints: (builder) => ({
     getAdvertisements: builder.query({
-      query: () => "/advertisements",
+      query: ({ page = 1, pageSize = 10, search = "", filter = {} }) => {
+        const queryParams = new URLSearchParams({
+          _start: `${(page - 1) * pageSize}`,
+          _limit: `${pageSize}`,
+          ...filter,
+        });
+
+        if (search) {
+          queryParams.append("q", search);
+        }
+
+        return `/advertisements?${queryParams.toString()}`;
+      },
     }),
+
     getAdvertisementsById: builder.query({
       query: (id) => `/advertisements/${id}`,
     }),
 
     addAdvertisement: builder.mutation({
       query: ({ id, ...data }) => ({
-        url: `/advertisements/${id}`, // URL запроса
-        method: "POST", // HTTP метод
-        body: data, // Тело запроса
+        url: `/advertisements/${id}`,
+        method: "POST",
+        body: data,
       }),
     }),
     deleteAdvertisement: builder.mutation({

@@ -16,3 +16,7 @@ ul {
     max-height: 200px;
     width: auto;
 }
+
+.search {
+    margin: 30px 10px;
+}

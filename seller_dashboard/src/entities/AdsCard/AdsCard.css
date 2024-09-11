@@ -3,11 +3,13 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  cursor: pointer;
 }
 
 .card_image {
   max-height: 200px;
   border-radius: 5px;
+  cursor: pointer;
 }
 
 .card_wrapper {
@@ -68,4 +70,13 @@
 
 :where(.css-dev-only-do-not-override-qnu6hi).ant-image {
   align-self: center;
+}
+
+.image-wrapper {
+  position: relative;
+}
+
+.image-wrapper img {
+  width: 100%;
+  height: auto;
 }
