@@ -7,12 +7,11 @@ import {
   useUpdateAdvertisementMutation,
 } from "../../../shared/api/api";
 import { useNavigate } from "react-router-dom";
-import AdsImage from "../Image/AdsImage";
+import AdsImage from "../Image/AdsImage/AdsImage";
 import { useDispatch, useSelector } from "react-redux";
 import { setImage } from "../../../shared/store/imageSlice";
 import "./AdsModal.css";
 import { IAdsProps } from "../../../app/types/types";
-
 import { AdsModalMode } from "../../../app/types/enums";
 
 interface AdsModalProps {
@@ -93,8 +92,12 @@ const AdsModal: React.FC<AdsModalProps> = ({ buttonText, mode, adsId }) => {
         destroyOnClose={true}
       >
         <div className="adsModal_wrapper">
-          <AdsImage imageUrl={imageValue} />
-          <AdsForm onFinish={handleOk} />
+          <div className="adsModal_imageWrapper">
+            <AdsImage imageUrl={imageValue} />
+          </div>
+          <div className="adsModal_formWrapper">
+            <AdsForm onFinish={handleOk} />
+          </div>
         </div>
       </Modal>
     </>

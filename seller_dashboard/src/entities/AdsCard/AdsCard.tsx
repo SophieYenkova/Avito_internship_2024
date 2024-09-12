@@ -2,12 +2,13 @@ import { Card } from "antd";
 import { EyeOutlined, HeartTwoTone } from "@ant-design/icons";
 import { formatDate } from "../../shared/utils/formatDate";
 import { IAdsProps } from "../../app/types/types";
+import AdsImage from "../../pages/ui/Image/AdsImage/AdsImage";
+import "./AdsCard.css";
+
 const { Meta } = Card;
 
-import "./AdsCard.css";
-import AdsImage from "../../pages/ui/Image/AdsImage";
 interface AdsCardProps extends IAdsProps {
-  className: string;
+  className?: string;
   onClick: () => void;
 }
 
@@ -22,6 +23,7 @@ const AdsCard = (props: AdsCardProps) => {
     createdAt,
     onClick,
   } = props;
+
   let croppedText = "";
   if (description) {
     croppedText = description.split(" ").slice(0, 12).join(" ");
@@ -32,32 +34,28 @@ const AdsCard = (props: AdsCardProps) => {
 
   return (
     <Card
-      style={{ width: 300 }}
-      className={className || "card"}
+      className="ads-card"
+      hoverable
       onClick={onClick}
+      cover={<AdsImage imageUrl={imageUrl} />}
     >
-      <AdsImage imageUrl={imageUrl} />
-      <div className="card_wrapper">
-        {" "}
-        <span className="card_bg card_views">
-          <EyeOutlined />
-          {views}
-        </span>
-        <span className="card_bg card_likes">
-          <HeartTwoTone twoToneColor="#eb2f96" />
-          {likes}
-        </span>
-      </div>
-      <div className="card_description">
-        <div className="card_wrapper">
-          <Meta title={name} description={croppedText} />
-          <span>{price}₽</span>
+      <Meta
+        title={name}
+        description={croppedText}
+      />
+      <div className="ads-card-footer">
+        <span className="ads-card-price">{price}₽</span>
+        <div className="ads-card-stats">
+          <span className="ads-card-stat">
+            <EyeOutlined /> {views}
+          </span>
+          <span className="ads-card-stat">
+            <HeartTwoTone twoToneColor="#eb2f96" /> {likes}
+          </span>
         </div>
-
-        <span className="card_time">
-          {" "}
-          Опубликовано: {formatDate(createdAt)}
-        </span>
+      </div>
+      <div className="ads-card-date">
+        Опубликовано: {formatDate(createdAt)}
       </div>
     </Card>
   );

@@ -1,3 +1,54 @@
-.adsModal_wrapper{
-    display: flex;
+.adsModal_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.adsModal_imageWrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.adsModal_formWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.adsModal_formWrapper button {
+  align-self: flex-end;
+}
+
+.ant-modal {
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.ant-modal-header {
+  background: linear-gradient(
+    90deg,
+    rgba(0, 128, 255, 1) 0%,
+    rgba(0, 74, 204, 1) 100%
+  );
+  color: #fff;
+  border-radius: 8px 8px 0 0;
+}
+
+.ant-modal-title {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.ant-modal-footer {
+  border-top: none;
+}
+
+.ant-btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.ant-btn-primary:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
 }

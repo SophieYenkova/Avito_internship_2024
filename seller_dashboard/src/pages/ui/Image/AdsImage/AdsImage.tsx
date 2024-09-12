@@ -1,5 +1,5 @@
 import { Image } from "antd";
-import ErrorImg from "../../AdsPage/ErrorImg";
+import ErrorImg from "../ErrorImage/ErrorImg";
 import "./AdsImage.css"
 
 interface ImageProps {

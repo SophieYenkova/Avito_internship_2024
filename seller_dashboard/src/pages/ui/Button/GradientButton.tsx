@@ -2,6 +2,7 @@ import React from "react";
 import { PlusSquareOutlined } from "@ant-design/icons";
 import { Button, ConfigProvider, Space } from "antd";
 import { createStyles } from "antd-style";
+import "./GradientButton.css";
 
 const useStyle = createStyles(({ prefixCls, css }) => ({
   linearGradientButton: css`
@@ -37,7 +38,8 @@ interface GradientButtonProps {
 }
 
 const GradientButton: React.FC<GradientButtonProps> = ({
-  handleButtonClick, buttonText
+  handleButtonClick,
+  buttonText,
 }) => {
   const { styles } = useStyle();
 
@@ -53,6 +55,7 @@ const GradientButton: React.FC<GradientButtonProps> = ({
           size="large"
           icon={<PlusSquareOutlined />}
           onClick={handleButtonClick}
+          className="linearGradientButton"
         >
           {buttonText}
         </Button>

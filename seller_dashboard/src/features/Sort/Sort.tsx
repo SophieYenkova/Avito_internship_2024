@@ -2,6 +2,8 @@ import { Select, Space } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import { setSort } from "../../shared/store/sortSlice";
 
+import "./Sort.css";
+
 interface SortItem {
   name: string;
   label: string;
@@ -10,8 +12,8 @@ interface SortItem {
 const AdsSort: SortItem[] = [
   { name: "likes", label: "Лайки" },
   { name: "views", label: "Просмотры" },
-  { name: "price", label: "Цена" }
-]
+  { name: "price", label: "Цена" },
+];
 
 const Sort = () => {
   const dispatch = useDispatch();
@@ -20,10 +22,10 @@ const Sort = () => {
     dispatch(setSort(value));
   };
 
-  let value = useSelector((state) => state.sort.value) ?? "likes"
+  let value = useSelector((state) => state.sort.value) ?? "likes";
 
   return (
-    <Space wrap>
+    <Space wrap className="sort-container">
       <span>Показать:</span>
       <Select
         defaultValue={value}
