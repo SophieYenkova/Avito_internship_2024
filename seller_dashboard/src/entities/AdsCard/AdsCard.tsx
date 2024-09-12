@@ -1,13 +1,13 @@
 import { Card } from "antd";
 import { EyeOutlined, HeartTwoTone } from "@ant-design/icons";
 import { formatDate } from "../../shared/utils/formatDate";
-import { Image } from "antd";
-import ErrorImg from "../../pages/AdsPage/errorImg";
 import { IAdsProps } from "../../app/types/types";
 const { Meta } = Card;
 
 import "./AdsCard.css";
+import AdsImage from "../../pages/ui/Image/AdsImage";
 interface AdsCardProps extends IAdsProps {
+  className: string;
   onClick: () => void;
 }
 
@@ -30,22 +30,13 @@ const AdsCard = (props: AdsCardProps) => {
     }
   }
 
-  const handleImageClick = (event: React.MouseEvent<HTMLImageElement>) => {
-    event.stopPropagation();
-  };
-
   return (
-    <Card style={{ width: 300 }} className="card" onClick={onClick}>
-      <div className="image-wrapper" onClick={handleImageClick}>
-        {imageUrl ? (
-          <Image
-            className="card_image"
-            src={imageUrl}
-          />
-        ) : (
-          <ErrorImg />
-        )}
-      </div>
+    <Card
+      style={{ width: 300 }}
+      className={className || "card"}
+      onClick={onClick}
+    >
+      <AdsImage imageUrl={imageUrl} />
       <div className="card_wrapper">
         {" "}
         <span className="card_bg card_views">

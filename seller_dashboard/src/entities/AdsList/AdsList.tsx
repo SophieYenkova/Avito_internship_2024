@@ -8,10 +8,11 @@ interface AdsListProps {
 }
 
 const AdsList: React.FC<AdsListProps> = ({ ads }) => {
-    if (!ads) {
-        return <div>Нет данных для отображения</div>;
-      }
   const navigate = useNavigate();
+  if (!ads) {
+    return <div>Нет данных для отображения</div>;
+  }
+
   const goToAdPage = (id: string) => {
     navigate(`/advertisements/${id}`);
   };

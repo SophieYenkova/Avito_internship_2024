@@ -72,11 +72,5 @@
   align-self: center;
 }
 
-.image-wrapper {
-  position: relative;
-}
 
-.image-wrapper img {
-  width: 100%;
-  height: auto;
-}
+
