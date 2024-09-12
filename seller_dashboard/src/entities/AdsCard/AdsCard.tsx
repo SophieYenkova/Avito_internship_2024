@@ -1,13 +1,13 @@
 import { Card } from "antd";
 import { EyeOutlined, HeartTwoTone } from "@ant-design/icons";
 import { formatDate } from "../../shared/utils/formatDate";
-import { IAdsProps } from "../../app/types/types";
+import { Advertisement } from "../../app/types/types";
 import AdsImage from "../../pages/ui/Image/AdsImage/AdsImage";
 import "./AdsCard.css";
 
 const { Meta } = Card;
 
-interface AdsCardProps extends IAdsProps {
+interface AdsCardProps extends Advertisement {
   className?: string;
   onClick: () => void;
 }
@@ -37,7 +37,7 @@ const AdsCard = (props: AdsCardProps) => {
       className="ads-card"
       hoverable
       onClick={onClick}
-      cover={<AdsImage imageUrl={imageUrl} />}
+      cover={<AdsImage imageUrl={imageUrl ?? ""} />}
     >
       <Meta
         title={name}

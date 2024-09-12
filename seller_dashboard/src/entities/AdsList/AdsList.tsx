@@ -1,10 +1,10 @@
 import AdsCard from "../../entities/AdsCard/AdsCard";
-import { IAds } from "../../app/types/types";
+import { Advertisement } from "../../app/types/types";
 import { useNavigate } from "react-router-dom";
 import "./AdsList.css";
 
 interface AdsListProps {
-  ads: IAds[];
+  ads: Advertisement[];
 }
 
 const AdsList: React.FC<AdsListProps> = ({ ads }) => {

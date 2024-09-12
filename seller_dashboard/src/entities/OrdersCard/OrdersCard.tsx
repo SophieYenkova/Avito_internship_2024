@@ -2,24 +2,7 @@ import React from "react";
 import { Card, Button } from "antd";
 import "./OrdersCard.css";
 import { useUpdateOrderMutation } from "../../shared/api/api";
-interface Item {
-  id: string;
-  name: string;
-  price: number;
-  count: number;
-  description?: string;
-  imageUrl?: string;
-}
-
-interface Order {
-  id: string;
-  status: number;
-  createdAt: string;
-  finishedAt?: string;
-  total: number;
-  deliveryWay: string;
-  items: Item[];
-}
+import { Order, orderStatusLabel } from "../../app/types/types";
 
 interface OrdersCardProps {
   order: Order;
@@ -30,17 +13,6 @@ const OrdersCard: React.FC<OrdersCardProps> = ({
   order,
   onClick,
 }) => {
-  const statusText = (status: number) => {
-    switch (status) {
-      case 0:
-        return "Новый";
-      case 4:
-        return "Завершен";
-      default:
-        return "В процессе";
-    }
-  };
-
   const totalItems = order.items.reduce((acc, item) => acc + item.count, 0);
   const [updateOrder] = useUpdateOrderMutation()
 
@@ -71,7 +43,7 @@ const OrdersCard: React.FC<OrdersCardProps> = ({
           <p>Стоимость заказа: {order.total} ₽</p>
           <p>Способ доставки: {order.deliveryWay}</p>
           <p>Дата создания: {new Date(order.createdAt).toLocaleDateString()}</p>
-          <p>Статус: {statusText(order.status)}</p>
+          <p>Статус: {orderStatusLabel(order.status)}</p>
 
           <Button
             className="button-primary"

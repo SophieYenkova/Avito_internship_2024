@@ -11,13 +11,11 @@ import AdsImage from "../Image/AdsImage/AdsImage";
 import { useDispatch, useSelector } from "react-redux";
 import { setImage } from "../../../shared/store/imageSlice";
 import "./AdsModal.css";
-import { IAdsProps } from "../../../app/types/types";
 import { AdsModalMode } from "../../../app/types/enums";
 
 interface AdsModalProps {
   buttonText: string;
   mode: AdsModalMode;
-  adsData?: IAdsProps;
   adsId?: string;
 }
 
