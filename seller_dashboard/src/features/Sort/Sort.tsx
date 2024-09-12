@@ -4,17 +4,6 @@ import { setSort } from "../../shared/store/sortSlice";
 
 import "./Sort.css";
 
-interface SortItem {
-  name: string;
-  label: string;
-}
-
-const AdsSort: SortItem[] = [
-  { name: "likes", label: "Лайки" },
-  { name: "views", label: "Просмотры" },
-  { name: "price", label: "Цена" },
-];
-
 const Sort = () => {
   const dispatch = useDispatch();
 

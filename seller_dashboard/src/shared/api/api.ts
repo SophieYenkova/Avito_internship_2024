@@ -38,7 +38,7 @@ export const api = createApi({
       }),
     }),
     updateAdvertisement: builder.mutation({
-      query:  ({ id, data }) => ({
+      query: ({ id, data }) => ({
         url: `/advertisements/${id}`,
         method: "PATCH",
         body: data,
@@ -51,13 +51,17 @@ export const api = createApi({
         body: data,
       }),
     }),
+    getOrdersTotal: builder.query({
+      query: ({ status }) => `/orders?status=${status > -1 ? status : ""}`,
+    }),
 
     getOrders: builder.query({
-      query: ({ page = 1, pageSize = 10, sort }) => {
+      query: ({ page = 1, pageSize = 10, sort, status }) => {
         const queryParams = new URLSearchParams({
           _start: `${(page - 1) * pageSize}`,
           _limit: `${pageSize}`,
           _sort: `${sort}`,
+          status: `${status > -1 ? status : ""}`,
         });
         return `/orders?${queryParams.toString()}`;
       },
@@ -65,19 +69,11 @@ export const api = createApi({
     getOrdersById: builder.query({
       query: (id) => `/orders/${id}`,
     }),
-
-    addOrder: builder.mutation({
-      query: ({ id, ...data }) => ({
+    updateOrder: builder.mutation({
+      query: ({ id, status }) => ({
         url: `/orders/${id}`,
-        method: "POST",
-        body: data,
-      }),
-    }),
-    deleteOrder: builder.mutation({
-      query: ({ id, ...data }) => ({
-        url: `/orders/${id}`,
-        method: "DELETE",
-        body: data,
+        method: "PATCH",
+        body: { status: status },
       }),
     }),
   }),
@@ -90,8 +86,8 @@ export const {
   useAddAdvertisementMutation,
   useUpdateAdvertisementMutation,
   useDeleteAdvertisementMutation,
+  useGetOrdersTotalQuery,
   useGetOrdersQuery,
   useGetOrdersByIdQuery,
-  useAddOrderMutation,
-  useDeleteOrderMutation,
+  useUpdateOrderMutation
 } = api;

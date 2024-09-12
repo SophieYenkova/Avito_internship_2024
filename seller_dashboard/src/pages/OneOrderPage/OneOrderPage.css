@@ -1,0 +1,46 @@
+.oneOrderPage {
+    padding: 20px;
+  }
+  
+  .order-details {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .order-info {
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+  }
+  
+  .order-items {
+    margin-top: 20px;
+  }
+  
+  .order-items ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .order-items li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  
+  .order-item-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-right: 20px;
+  }
+  
+  .order-item-image + div {
+    flex: 1;
+  }
+  
+  .order-item {
+    cursor: pointer;
+  }

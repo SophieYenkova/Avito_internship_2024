@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import OrdersCard from "../OrdersCard/OrdersCard";
 
 interface Item {
@@ -19,13 +20,17 @@ interface Order {
 
 interface OrdersListProps {
   orders: Order[];
-  onCompleteOrder: (orderId: string) => void;
 }
 
-const OrdersList: React.FC<OrdersListProps> = ({ orders, onCompleteOrder }) => {
+const OrdersList: React.FC<OrdersListProps> = ({ orders }) => {
+  const navigate = useNavigate();
   if (!orders || orders.length === 0) {
     return <p>Нет заказов для отображения</p>;
   }
+
+  const goToOrdersPage = (id: string) => {
+    navigate(`/orders/${id}`);
+  };
 
   return (
     <div style={{ display: "flex", flexWrap: "wrap", gap: "16px" }}>
@@ -33,7 +38,7 @@ const OrdersList: React.FC<OrdersListProps> = ({ orders, onCompleteOrder }) => {
         <OrdersCard
           key={order.id}
           order={order}
-          onCompleteOrder={onCompleteOrder}
+          onClick={() => goToOrdersPage(order.id)}
         />
       ))}
     </div>
