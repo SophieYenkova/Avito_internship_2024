@@ -6,30 +6,20 @@ import { Order, orderStatusLabel } from "../../app/types/types";
 
 interface OrdersCardProps {
   order: Order;
-  onClick: () => void
+  onClick: () => void;
 }
 
-const OrdersCard: React.FC<OrdersCardProps> = ({
-  order,
-  onClick,
-}) => {
+const OrdersCard: React.FC<OrdersCardProps> = ({ order, onClick }) => {
   const totalItems = order.items.reduce((acc, item) => acc + item.count, 0);
-  const [updateOrder] = useUpdateOrderMutation()
+  const [updateOrder] = useUpdateOrderMutation();
 
   const handleCompleteOrder = (orderId: string) => {
-    updateOrder({id: orderId, status: 5})
-    .unwrap()
-      .then((resp) => {
+    updateOrder({ id: orderId, status: 5 })
+      .unwrap()
+      .then(() => {
         window.location.reload();
-      })
-      .catch(() => {
-       
-      })
-      .finally(() => {
-
       });
   };
-
 
   return (
     <>
