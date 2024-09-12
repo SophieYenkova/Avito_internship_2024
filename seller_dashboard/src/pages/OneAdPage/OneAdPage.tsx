@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { useGetAdvertisementsByIdQuery } from "../../shared/api/api";
+import { useGetAdvertisementsByIdQuery } from "../../utils/api/api";
 import "./OneAdPage.css";
-import AdsModal from "../ui/Modal/AdsModal";
+import AdsModal from "../../components/ui/Modal/AdsModal";
 import { AdsModalMode } from "../../app/types/enums";
 import { Button } from "antd";
 

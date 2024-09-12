@@ -1,4 +1,4 @@
-import AdsCard from "../../entities/AdsCard/AdsCard";
+import AdsCard from "../AdsCard/AdsCard";
 import { Advertisement } from "../../app/types/types";
 import { useNavigate } from "react-router-dom";
 import "./AdsList.css";
@@ -17,7 +17,7 @@ const AdsList: React.FC<AdsListProps> = ({ ads }) => {
     navigate(`/advertisements/${id}`);
   };
   return (
-    <div className="ads_list">
+    <div className="ads-list">
       {ads.map((ad) => (
         <AdsCard key={ad.id} {...ad} onClick={() => goToAdPage(ad.id)} />
       ))}

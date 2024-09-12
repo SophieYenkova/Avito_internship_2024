@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Spin } from "antd";
-import { useGetOrdersQuery, useGetOrdersTotalQuery } from "../../shared/api/api";
-import OrdersList from "../../entities/OrdersList/OrdersList";
-import OrdersPagination from "../ui/Pagination/AdsPagination/AdsPagination";
-import OrderFilter from "../../entities/OrdersFilter/OrdersFilter";
-import OrdersSort from "../../features/Sort/OrdersSort";
+import { useGetOrdersQuery, useGetOrdersTotalQuery } from "../../utils/api/api";
+import OrdersList from "../../components/OrdersList/OrdersList";
+import OrdersPagination from "../../components/ui/Pagination/AdsPagination/AdsPagination";
+import OrderFilter from "../../components/OrdersFilter/OrdersFilter";
+import OrdersSort from "../../components/OrdersSort/OrdersSort";
 
 const OrdersPage = () => {
   const [page, setPage] = useState(1);

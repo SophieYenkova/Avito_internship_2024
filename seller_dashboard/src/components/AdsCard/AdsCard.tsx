@@ -1,8 +1,8 @@
 import { Card } from "antd";
 import { EyeOutlined, HeartTwoTone } from "@ant-design/icons";
-import { formatDate } from "../../shared/utils/formatDate";
+import { formatDate } from "../../utils/helpers/formatDate";
 import { Advertisement } from "../../app/types/types";
-import AdsImage from "../../pages/ui/Image/AdsImage/AdsImage";
+import AdsImage from "../ui/Image/AdsImage/AdsImage";
 import "./AdsCard.css";
 
 const { Meta } = Card;
@@ -39,10 +39,7 @@ const AdsCard = (props: AdsCardProps) => {
       onClick={onClick}
       cover={<AdsImage imageUrl={imageUrl ?? ""} />}
     >
-      <Meta
-        title={name}
-        description={croppedText}
-      />
+      <Meta title={name} description={croppedText} />
       <div className="ads-card-footer">
         <span className="ads-card-price">{price}₽</span>
         <div className="ads-card-stats">
@@ -54,9 +51,7 @@ const AdsCard = (props: AdsCardProps) => {
           </span>
         </div>
       </div>
-      <div className="ads-card-date">
-        Опубликовано: {formatDate(createdAt)}
-      </div>
+      <div className="ads-card-date">Опубликовано: {formatDate(createdAt)}</div>
     </Card>
   );
 };

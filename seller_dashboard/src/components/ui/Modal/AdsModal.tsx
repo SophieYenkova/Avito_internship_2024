@@ -1,27 +1,32 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import { Modal } from "antd";
 import GradientButton from "../Button/GradientButton";
 import AdsForm, { AdsFormValues } from "../Form/AdsForm";
-import {
-  useAddAdvertisementMutation,
-  useUpdateAdvertisementMutation,
-} from "../../../shared/api/api";
-import { useNavigate } from "react-router-dom";
 import AdsImage from "../Image/AdsImage/AdsImage";
-import { useDispatch, useSelector } from "react-redux";
-import { setImage } from "../../../shared/store/imageSlice";
+import { setImage } from "../../../utils/store/imageSlice";
 import "./AdsModal.css";
 import { AdsModalMode } from "../../../app/types/enums";
 import { Advertisement } from "../../../app/types/types";
+import {
+  useAddAdvertisementMutation,
+  useUpdateAdvertisementMutation,
+} from "../../../utils/api/api";
 
 interface AdsModalProps {
   buttonText: string;
   mode: AdsModalMode;
   adsId?: string;
-  adsData?: Advertisement
+  adsData?: Advertisement;
 }
 
-const AdsModal: React.FC<AdsModalProps> = ({ buttonText, mode, adsId, adsData }) => {
+const AdsModal: React.FC<AdsModalProps> = ({
+  buttonText,
+  mode,
+  adsId,
+  adsData,
+}) => {
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();

@@ -1,9 +1,8 @@
 import React from "react";
-import { Layout, Menu, theme, Breadcrumb } from "antd";
+import { Layout, Menu, theme } from "antd";
 import { Link, Outlet } from "react-router-dom";
-import Sort from "../../features/Sort/Sort";
 
-const { Header, Content, Footer, Sider } = Layout;
+const { Header, Content, Footer } = Layout;
 const LayoutWithRoutes: React.FC = () => {
   const {
     token: { colorBgContainer, borderRadiusLG },
@@ -13,9 +12,6 @@ const LayoutWithRoutes: React.FC = () => {
     { key: "1", label: <Link to="/advertisements">Объявления</Link> },
     { key: "2", label: <Link to="/orders">Заказы</Link> },
   ];
-
-  const items2=[]
-
 
   return (
     <Layout>

@@ -1,6 +1,6 @@
 import { Select, Space } from "antd";
 import { useDispatch, useSelector } from "react-redux";
-import { setSort } from "../../shared/store/sortSlice";
+import { setSort } from "../../utils/store/sortSlice";
 
 import "./Sort.css";
 
@@ -11,7 +11,7 @@ const Sort = () => {
     dispatch(setSort(value));
   };
 
-  let value = useSelector((state) => state.sort.value) ?? "likes";
+  const value = useSelector((state) => state.sort.value) ?? "likes";
 
   return (
     <Space wrap className="sort-container">

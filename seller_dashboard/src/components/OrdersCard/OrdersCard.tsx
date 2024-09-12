@@ -1,7 +1,7 @@
 import React from "react";
 import { Card, Button } from "antd";
 import "./OrdersCard.css";
-import { useUpdateOrderMutation } from "../../shared/api/api";
+import { useUpdateOrderMutation } from "../../utils/api/api";
 import { Order, orderStatusLabel } from "../../app/types/types";
 
 interface OrdersCardProps {

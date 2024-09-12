@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import AdsPage from "../pages/AdsPage/AdsPage";
 import OneAdPage from "../pages/OneAdPage/OneAdPage";
-import LayoutWithRoutes from "../entities/LayoutWithRoutes/LayoutWithRoutes";
+import LayoutWithRoutes from "../components/LayoutWithRoutes/LayoutWithRoutes";
 import OrdersPage from "../pages/OrdersPage/OrdersPage";
 import OneOrderPage from "../pages/OneOrderPage/OneOrderPage";
 

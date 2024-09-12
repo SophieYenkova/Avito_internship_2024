@@ -1,9 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { api } from "../api/api";
-import sortReducer from "../store/sortSlice";
-import sortOrdersReducer from "../store/ordersSortSlice";
-import imageReducer from "../store/imageSlice";
-import oneAdDataReducer from "../store/oneAdSlice";
+import sortReducer from "./sortSlice";
+import sortOrdersReducer from "./ordersSortSlice";
+import imageReducer from "./imageSlice";
+import oneAdDataReducer from "./oneAdSlice";
 
 export const store = configureStore({
   reducer: {

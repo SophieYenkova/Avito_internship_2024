@@ -1,6 +1,6 @@
 import { Select, Space } from "antd";
 import { useDispatch, useSelector } from "react-redux";
-import {sortOrders } from "../../shared/store/ordersSortSlice";
+import { sortOrders } from "../../utils/store/ordersSortSlice";
 import "./OrdersSort.css";
 
 const OrdersSort = () => {

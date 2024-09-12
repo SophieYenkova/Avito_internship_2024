@@ -3,7 +3,7 @@ import { Form, Input, InputNumber } from "antd";
 import "./AdsForm.css";
 import { ValidateErrorEntity } from "rc-field-form/lib/interface";
 import { useDispatch } from "react-redux";
-import { setImage } from "../../../shared/store/imageSlice";
+import { setImage } from "../../../utils/store/imageSlice";
 import { Advertisement } from "../../../app/types/types";
 
 export interface AdsFormValues {

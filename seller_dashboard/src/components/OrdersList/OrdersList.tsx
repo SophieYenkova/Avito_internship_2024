@@ -1,22 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import OrdersCard from "../OrdersCard/OrdersCard";
-
-interface Item {
-  id: string;
-  name: string;
-  price: number;
-  count: number;
-}
-
-interface Order {
-  id: string;
-  status: number;
-  createdAt: string;
-  finishedAt?: string;
-  total: number;
-  deliveryWay: string;
-  items: Item[];
-}
+import { Order } from "../../app/types/types";
 
 interface OrdersListProps {
   orders: Order[];

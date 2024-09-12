@@ -5,7 +5,7 @@ import "./ErrorImage.css"
 const ErrorImg: React.FC = () => (
   <div className="image-wrapper" >
   <Image
-    className="errorImg_image"
+    className="errorImg-image"
     width={200}
     height={200}
     src="error"

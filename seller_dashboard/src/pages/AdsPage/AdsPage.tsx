@@ -1,18 +1,18 @@
 import { useState, useEffect } from "react";
-
+import { useSelector } from "react-redux";
+import useDebounce from "../../utils/hooks/useDebounce";
+import AdsSearch from "../../components/ui/Search/AdsSearch/AdsSearch";
+import AdsList from "../../components/AdsList/AdsList";
+import AdsPagination from "../../components/ui/Pagination/AdsPagination/AdsPagination";
+import AdsModal from "../../components/ui/Modal/AdsModal";
+import { AdsModalMode } from "../../app/types/enums";
+import Sort from "../../components/Sort/Sort";
 import { Spin } from "antd";
+
 import {
   useGetAdvertisementsQuery,
   useGetAdvertisementsTotalQuery,
-} from "../../shared/api/api";
-import AdsSearch from "../ui/Search/AdsSearch/AdsSearch";
-import AdsList from "../../entities/AdsList/AdsList";
-import AdsPagination from "../ui/Pagination/AdsPagination/AdsPagination";
-import useDebounce from "../../shared/hooks/useDebounce";
-import Sort from "../../features/Sort/Sort";
-import AdsModal from "../ui/Modal/AdsModal";
-import { AdsModalMode } from "../../app/types/enums";
-import { useSelector } from "react-redux";
+} from "../../utils/api/api";
 
 const AdsPage = () => {
   const [page, setPage] = useState(1);

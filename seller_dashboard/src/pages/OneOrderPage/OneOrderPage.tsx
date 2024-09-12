@@ -1,24 +1,16 @@
-import { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { useGetOrdersByIdQuery } from "../../shared/api/api";
+import { useGetOrdersByIdQuery } from "../../utils/api/api";
 import "./OneOrderPage.css";
-import AdsImage from "../ui/Image/AdsImage/AdsImage";
 
 const OneOrderPage = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const { id } = useParams<{ id: string }>();
   const { data: order, isLoading, isError } = useGetOrdersByIdQuery(id);
-  const [isTextVisible, setTextVisible] = useState(false);
-
-  console.log(order);
 
   if (isLoading) return <div>Загрузка...</div>;
   if (isError) return <div>Ошибка при загрузке данных</div>;
   if (!order) return <div>Заказ не найден</div>;
 
-  const handleToggleText = () => {
-    setTextVisible((prev) => !prev);
-  };
   const goToAdsPage = (id: string) => {
     navigate(`/advertisements/${id}`);
   };
@@ -51,7 +43,11 @@ const OneOrderPage = () => {
             <strong>Товары в заказе:</strong>
             <ul>
               {order.items.map((item) => (
-                <li className="order-item" key={item.id} onClick={() => goToAdsPage(item.id) }>
+                <li
+                  className="order-item"
+                  key={item.id}
+                  onClick={() => goToAdsPage(item.id)}
+                >
                   <img
                     src={item.imageUrl}
                     alt={item.name}

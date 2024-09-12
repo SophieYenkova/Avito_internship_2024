@@ -1,6 +1,6 @@
 import React from "react";
 import { Select, Space } from "antd";
-import "./OrdersFilter.css"
+import "./OrdersFilter.css";
 
 interface OrderFilterProps {
   selectedStatus: number;
@@ -14,7 +14,10 @@ const statusOptions = [
   { value: 4, label: "Завершен" },
 ];
 
-const OrderFilter: React.FC<OrderFilterProps> = ({ selectedStatus, onStatusChange }) => {
+const OrderFilter: React.FC<OrderFilterProps> = ({
+  selectedStatus,
+  onStatusChange,
+}) => {
   return (
     <Space style={{ marginBottom: 16 }}>
       <span>Фильтр по статусу:</span>
@@ -22,7 +25,10 @@ const OrderFilter: React.FC<OrderFilterProps> = ({ selectedStatus, onStatusChang
         value={selectedStatus}
         onChange={onStatusChange}
         style={{ width: 200 }}
-        options={statusOptions.map(option => ({ value: option.value, label: option.label }))}
+        options={statusOptions.map((option) => ({
+          value: option.value,
+          label: option.label,
+        }))}
       />
     </Space>
   );
