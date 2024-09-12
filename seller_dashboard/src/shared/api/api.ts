@@ -11,7 +11,7 @@ export const api = createApi({
           _start: `${(page - 1) * pageSize}`,
           _limit: `${pageSize}`,
           _sort: `${sort}`,
-          name: `${search}`
+          name: `${search}`,
         });
         return `/advertisements?${queryParams.toString()}`;
       },
@@ -22,13 +22,25 @@ export const api = createApi({
     }),
 
     getAdvertisementsTotal: builder.query({
-      query: ({search}) =>  `/advertisements/?name=${search}`,
+      query: ({ search }) => `/advertisements/?name=${search}`,
     }),
 
     addAdvertisement: builder.mutation({
-      query: ({ id, ...data }) => ({
-        url: `/advertisements/${id}`,
+      query: (data) => ({
+        url: `/advertisements/`,
         method: "POST",
+        body: {
+          ...data,
+          createdAt: new Date().toISOString(),
+          views: 0,
+          likes: 0,
+        },
+      }),
+    }),
+    updateAdvertisement: builder.mutation({
+      query:  ({ id, data }) => ({
+        url: `/advertisements/${id}`,
+        method: "PATCH",
         body: data,
       }),
     }),
@@ -69,6 +81,7 @@ export const {
   useGetAdvertisementsByIdQuery,
   useGetAdvertisementsTotalQuery,
   useAddAdvertisementMutation,
+  useUpdateAdvertisementMutation,
   useDeleteAdvertisementMutation,
   useGetOrdersQuery,
   useGetOrdersByIdQuery,

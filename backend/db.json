@@ -1,4 +1,4 @@
-{ 
+{
   "advertisements": [
     {
       "id": "1",
@@ -538,6 +538,109 @@
       "views": 200000,
       "likes": 302,
       "imageUrl": "https://elektronspb.ru/upload/iblock/fa7/fa716b9a119eafc4165b108d45ee4648.jpg"
+    },
+    {
+      "id": "5e8d",
+      "name": "Бубубув",
+      "description": "ыкуиркыецицткеки",
+      "imageUrl": "https://gov.cap.ru/Content2021/news/202103/15/Original/gimalayskaya_koshka_09(1).jpg",
+      "price": 122342243,
+      "createdAt": "2024-09-12T06:57:56.878Z",
+      "views": 0,
+      "likes": 0
+    },
+    {
+      "id": "53ee",
+      "name": "df,ik",
+      "price": 122233,
+      "createdAt": "2024-09-12T07:06:46.530Z",
+      "views": 0,
+      "likes": 0
+    },
+    {
+      "id": "f61c",
+      "name": "weff",
+      "price": 12325,
+      "createdAt": "2024-09-12T07:07:46.265Z",
+      "views": 0,
+      "likes": 0
+    },
+    {
+      "id": "5abe",
+      "name": "Панда",
+      "price": 300,
+      "createdAt": "2024-09-12T07:08:43.296Z",
+      "views": 0,
+      "likes": 0
+    },
+    {
+      "id": "afc5",
+      "name": ",буба",
+      "price": 4000,
+      "createdAt": "2024-09-12T07:13:03.095Z",
+      "views": 0,
+      "likes": 0
+    },
+    {
+      "id": "5901",
+      "name": "ПОни",
+      "price": 400000,
+      "createdAt": "2024-09-12T07:16:19.201Z",
+      "views": 0,
+      "likes": 0
+    },
+    {
+      "id": "1783",
+      "name": "буся",
+      "description": "фкмум",
+      "imageUrl": "https://avatars.mds.yandex.net/i?id=5ace80ca363eee9a0929b675577c82a6_l-4766454-images-thumbs&n=13",
+      "price": 2,
+      "createdAt": "2024-09-12T08:33:37.754Z",
+      "views": 0,
+      "likes": 0
+    },
+    {
+      "id": "1134",
+      "name": "324",
+      "price": 434,
+      "createdAt": "2024-09-12T10:12:11.894Z",
+      "views": 0,
+      "likes": 0
+    },
+    {
+      "id": "3222",
+      "name": "d",
+      "description": "er",
+      "imageUrl": "",
+      "price": 2,
+      "createdAt": "2024-09-12T10:42:25.570Z",
+      "views": 0,
+      "likes": 0
+    },
+    {
+      "id": "1dbb",
+      "name": "Pencil",
+      "description": "Not a paper",
+      "price": 777,
+      "createdAt": "2024-09-12T10:43:32.951Z",
+      "views": 0,
+      "likes": 0
+    },
+    {
+      "id": "9e1a",
+      "name": "4567",
+      "price": 1234,
+      "createdAt": "2024-09-12T11:15:45.714Z",
+      "views": 0,
+      "likes": 0
+    },
+    {
+      "id": "d6f3",
+      "name": "13546",
+      "price": 1222,
+      "createdAt": "2024-09-12T11:30:25.041Z",
+      "views": 0,
+      "likes": 0
     }
   ],
   "orders": [
