@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Spin } from "antd";
 import { useGetOrdersQuery, useGetOrdersTotalQuery } from "../../utils/api/api";
+import { AllStatuses } from "../../app/types/types";
 import OrdersList from "../../components/OrdersList/OrdersList";
 import OrdersPagination from "../../components/ui/Pagination/AdsPagination/AdsPagination";
 import OrderFilter from "../../components/OrdersFilter/OrdersFilter";
@@ -12,7 +13,7 @@ const OrdersPage = () => {
   const [pageSize, setPageSize] = useState(10);
   const [total, setTotal] = useState(0);
   const [ordersData, setOrdersData] = useState([]);
-  const [selectedStatus, setSelectedStatus] = useState<number>(-1);
+  const [selectedStatus, setSelectedStatus] = useState<number>(AllStatuses);
 
   const sort = useSelector((state) => state.sortOrders.value);
 

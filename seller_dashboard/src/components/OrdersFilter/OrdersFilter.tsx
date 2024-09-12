@@ -1,18 +1,14 @@
 import React from "react";
 import { Select, Space } from "antd";
 import "./OrdersFilter.css";
+import { AllStatuses, OrderStatus, orderStatusLabel } from "../../app/types/types";
 
 interface OrderFilterProps {
   selectedStatus: number;
   onStatusChange: (status: number) => void;
 }
 
-const statusOptions = [
-  { value: -1, label: "Все статусы" },
-  { value: 0, label: "Новый" },
-  { value: 1, label: "В процессе" },
-  { value: 4, label: "Завершен" },
-];
+const extendedStatuses = [AllStatuses, ...Object.values(OrderStatus)]
 
 const OrderFilter: React.FC<OrderFilterProps> = ({
   selectedStatus,
@@ -25,9 +21,9 @@ const OrderFilter: React.FC<OrderFilterProps> = ({
         value={selectedStatus}
         onChange={onStatusChange}
         style={{ width: 200 }}
-        options={statusOptions.map((option) => ({
-          value: option.value,
-          label: option.label,
+        options={extendedStatuses.map((status) => ({
+          value: status,
+          label: orderStatusLabel(status),
         }))}
       />
     </Space>

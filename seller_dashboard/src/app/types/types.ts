@@ -28,6 +28,8 @@ export const OrderStatus = {
   Refund: 6
 } as const;
 
+export const AllStatuses = -1
+
 export const orderStatusLabel = (status: number) => {
     switch (status) {
       case OrderStatus.Created: return "Новый";
