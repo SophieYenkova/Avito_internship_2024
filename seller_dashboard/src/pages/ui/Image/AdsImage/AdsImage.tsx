@@ -3,7 +3,7 @@ import ErrorImg from "../ErrorImage/ErrorImg";
 import "./AdsImage.css"
 
 interface ImageProps {
-  imageUrl: string;
+  imageUrl?: string;
 }
 
 const AdsImage = ({ imageUrl }: ImageProps) => {

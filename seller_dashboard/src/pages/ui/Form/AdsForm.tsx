@@ -2,8 +2,9 @@ import React from "react";
 import { Form, Input, InputNumber } from "antd";
 import "./AdsForm.css";
 import { ValidateErrorEntity } from "rc-field-form/lib/interface";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { setImage } from "../../../shared/store/imageSlice";
+import { Advertisement } from "../../../app/types/types";
 
 export interface AdsFormValues {
   name: string;
@@ -14,18 +15,15 @@ export interface AdsFormValues {
 
 interface AdsFormProps {
   onFinish: (values: AdsFormValues) => void;
+  adsData?: Advertisement
 }
 
 const onFinishFailed = (errorInfo: ValidateErrorEntity<AdsFormValues>) => {
   console.log("Failed:", errorInfo);
 };
 
-const AdsForm: React.FC<AdsFormProps> = ({ onFinish }) => {
+const AdsForm: React.FC<AdsFormProps> = ({ onFinish, adsData }) => {
   const dispatch = useDispatch();
-
-  const { name, description, imageUrl, price } = useSelector(
-    (state) => state.oneAdData.value
-  );
 
   const handleChange = (evt) => {
     dispatch(setImage(evt.target.value));
@@ -38,7 +36,7 @@ const AdsForm: React.FC<AdsFormProps> = ({ onFinish }) => {
       labelCol={{ span: 8 }}
       wrapperCol={{ span: 16 }}
       style={{ maxWidth: 600 }}
-      initialValues={{ remember: true }}
+      initialValues={adsData}
       onFinish={onFinish}
       onFinishFailed={onFinishFailed}
       autoComplete="off"
@@ -48,15 +46,15 @@ const AdsForm: React.FC<AdsFormProps> = ({ onFinish }) => {
         name="name"
         rules={[{ required: true, message: "Пожалуйста, введите название!" }]}
       >
-        <Input defaultValue={name} />
+        <Input/>
       </Form.Item>
 
       <Form.Item<AdsFormValues> label="Описание" name="description">
-        <Input defaultValue={description} />
+        <Input/>
       </Form.Item>
 
       <Form.Item<AdsFormValues> label="Фото URl" name="imageUrl">
-        <Input onChange={(evt) => handleChange(evt)} defaultValue={imageUrl} />
+        <Input onChange={(evt) => handleChange(evt)} />
       </Form.Item>
 
       <Form.Item<AdsFormValues>
@@ -64,7 +62,7 @@ const AdsForm: React.FC<AdsFormProps> = ({ onFinish }) => {
         name="price"
         rules={[{ required: true, message: "Пожалуйста, добавьте цену" }]}
       >
-        <InputNumber min={0} defaultValue={price} />
+        <InputNumber min={0}/>
       </Form.Item>
     </Form>
   );

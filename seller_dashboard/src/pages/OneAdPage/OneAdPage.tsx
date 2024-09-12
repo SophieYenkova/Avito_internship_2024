@@ -65,6 +65,7 @@ const OneAdPage = () => {
         buttonText="Изменить объявление"
         mode={AdsModalMode.UPDATE}
         adsId={id}
+        adsData={ad}
       />
     </div>
   );

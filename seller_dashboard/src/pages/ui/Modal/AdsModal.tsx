@@ -12,16 +12,17 @@ import { useDispatch, useSelector } from "react-redux";
 import { setImage } from "../../../shared/store/imageSlice";
 import "./AdsModal.css";
 import { AdsModalMode } from "../../../app/types/enums";
+import { Advertisement } from "../../../app/types/types";
 
 interface AdsModalProps {
   buttonText: string;
   mode: AdsModalMode;
   adsId?: string;
+  adsData?: Advertisement
 }
 
-const AdsModal: React.FC<AdsModalProps> = ({ buttonText, mode, adsId }) => {
+const AdsModal: React.FC<AdsModalProps> = ({ buttonText, mode, adsId, adsData }) => {
   const [open, setOpen] = useState(false);
-  const imageValue = useSelector((state) => state.image.value);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [confirmLoading, setConfirmLoading] = useState(false);
@@ -91,10 +92,10 @@ const AdsModal: React.FC<AdsModalProps> = ({ buttonText, mode, adsId }) => {
       >
         <div className="adsModal_wrapper">
           <div className="adsModal_imageWrapper">
-            <AdsImage imageUrl={imageValue} />
+            <AdsImage imageUrl={adsData?.imageUrl} />
           </div>
           <div className="adsModal_formWrapper">
-            <AdsForm onFinish={handleOk} />
+            <AdsForm onFinish={handleOk} adsData={adsData} />
           </div>
         </div>
       </Modal>
