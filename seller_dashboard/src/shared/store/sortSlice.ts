@@ -1,11 +1,11 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-interface SortState {
+export interface SortState {
   value: string;
 }
 
 const initialState: SortState = {
-  value: 'likes', // По умолчанию сортировка по лайкам
+  value: 'likes', 
 };
 
 export const sortSlice = createSlice({
