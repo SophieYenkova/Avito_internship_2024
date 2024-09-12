@@ -1,0 +1,110 @@
+.card-container {
+  width: 300px;
+  margin: 16px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+
+.card-container:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transform: scale(1.02);
+}
+
+.card-header {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.card-content {
+  padding: 16px;
+}
+
+.card-content p {
+  margin: 8px 0;
+}
+
+.button-primary {
+  background-color: #1890ff;
+  border-color: #1890ff;
+  color: #fff;
+}
+
+.button-primary:hover {
+  background-color: #40a9ff;
+  border-color: #40a9ff;
+}
+
+.ant-modal {
+  border-radius: 8px;
+}
+
+.ant-modal-header {
+  background-color: #f0f2f5;
+}
+
+.ant-modal-body {
+  padding: 24px;
+}
+
+.ant-modal-footer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.ant-modal-footer .ant-btn {
+  border-radius: 4px;
+}
+
+
+.ant-modal {
+    border-radius: 8px;
+  }
+  
+  .ant-modal-header {
+    background-color: #f0f2f5; 
+    border-bottom: 1px solid #d9d9d9;
+  }
+  
+  .ant-modal-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .ant-modal-body {
+    padding: 24px;
+  }
+  
+  .ant-modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    padding: 16px;
+  }
+  
+
+  .modal-items-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .modal-item {
+    display: flex;
+    flex-direction: column;
+    padding: 12px;
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+  }
+  
+  .modal-item img {
+    max-width: 100%;
+    border-radius: 4px;
+    margin-bottom: 8px;
+  }
+  
+  .modal-item p {
+    margin: 4px 0;
+    font-size: 1rem;
+  }
+  

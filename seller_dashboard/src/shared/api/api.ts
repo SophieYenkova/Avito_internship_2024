@@ -53,7 +53,14 @@ export const api = createApi({
     }),
 
     getOrders: builder.query({
-      query: () => "/orders",
+      query: ({ page = 1, pageSize = 10, sort }) => {
+        const queryParams = new URLSearchParams({
+          _start: `${(page - 1) * pageSize}`,
+          _limit: `${pageSize}`,
+          _sort: `${sort}`,
+        });
+        return `/orders?${queryParams.toString()}`;
+      },
     }),
     getOrdersById: builder.query({
       query: (id) => `/orders/${id}`,
