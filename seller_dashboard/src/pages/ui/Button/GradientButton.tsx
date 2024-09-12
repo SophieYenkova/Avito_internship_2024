@@ -1,11 +1,13 @@
-import React from 'react';
-import { AntDesignOutlined } from '@ant-design/icons';
-import { Button, ConfigProvider, Space } from 'antd';
-import { createStyles } from 'antd-style';
+import React from "react";
+import { PlusSquareOutlined } from "@ant-design/icons";
+import { Button, ConfigProvider, Space } from "antd";
+import { createStyles } from "antd-style";
 
 const useStyle = createStyles(({ prefixCls, css }) => ({
   linearGradientButton: css`
-    &.${prefixCls}-btn-primary:not([disabled]):not(.${prefixCls}-btn-dangerous) {
+    &.${prefixCls}-btn-primary:not([disabled]):not(
+        .${prefixCls}-btn-dangerous
+      ) {
       border-width: 0;
 
       > span {
@@ -13,7 +15,7 @@ const useStyle = createStyles(({ prefixCls, css }) => ({
       }
 
       &::before {
-        content: '';
+        content: "";
         background: linear-gradient(135deg, #6253e1, #04befe);
         position: absolute;
         inset: 0;
@@ -29,7 +31,14 @@ const useStyle = createStyles(({ prefixCls, css }) => ({
   `,
 }));
 
-const GradientButton: React.FC = () => {
+interface GradientButtonProps {
+  handleButtonClick: () => void;
+  buttonText: string;
+}
+
+const GradientButton: React.FC<GradientButtonProps> = ({
+  handleButtonClick, buttonText
+}) => {
   const { styles } = useStyle();
 
   return (
@@ -39,10 +48,14 @@ const GradientButton: React.FC = () => {
       }}
     >
       <Space>
-        <Button type="primary" size="large" icon={<AntDesignOutlined />}>
-          Gradient Button
+        <Button
+          type="primary"
+          size="large"
+          icon={<PlusSquareOutlined />}
+          onClick={handleButtonClick}
+        >
+          {buttonText}
         </Button>
-        <Button size="large">Button</Button>
       </Space>
     </ConfigProvider>
   );

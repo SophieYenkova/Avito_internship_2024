@@ -1,0 +1,8 @@
+.adsForm {
+   display: flex;
+   flex-direction: column;
+}
+
+.adsForm_image {
+   margin: 10px;
+}
